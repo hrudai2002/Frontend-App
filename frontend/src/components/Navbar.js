@@ -20,11 +20,11 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-        <div className="company">
-          <h1 className="title">fampay</h1>
-          <div className="logo">
-            <SiFampay />
-          </div>
+      <div className="company">
+        <h1 className="title">fampay</h1>
+        <div className="logo">
+          <SiFampay style={{ color: "#FFAD00" }} />
+        </div>
       </div>
     </>
   );
