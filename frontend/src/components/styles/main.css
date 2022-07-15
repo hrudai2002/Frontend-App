@@ -1,7 +1,22 @@
 /* Main */
+
 .main {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     margin-top: 25px;
+    padding-top: 24px;
     background-color: #F7F6F3;
 }
+
+/* Scrolling Cards */
+
+.scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden; 
+    white-space: nowrap;
+}
+
+.scrolling-wrapper::-webkit-scrollbar {
+    width: 0;
+}
+

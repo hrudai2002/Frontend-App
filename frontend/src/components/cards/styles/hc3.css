@@ -1,0 +1,54 @@
+/* HC3 card */
+
+.hc3-parent {
+  padding-top: 24px;
+  padding-bottom: 15px;
+}
+
+.hc3-card {
+  position: relative;
+  width: 88.88%;
+  height: 350px;
+  border-radius: 12px;
+  margin-left: 5.56%;
+  margin-top: 10px;
+}
+
+.hc3-card-display {
+  display: inline-block;
+}
+
+.hc3-card img {
+  width: 100%;
+  height: 350px;
+}
+
+.hc3card-title {
+  position: absolute;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 30px;
+  top: 35.71%;
+  left: 10.3%;
+}
+
+.hc3card-description {
+  position: absolute;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  top: 63.71%;
+  left: 9.4%;
+}
+
+.hc3card-button {
+  position: absolute;
+  width: 128px;
+  height: 42px;
+  top: 82.28%;
+  left: 10.3%;
+  border: none;
+  border-radius: 6px;
+  /* padding: 30.9% 33.9%; */
+}
+

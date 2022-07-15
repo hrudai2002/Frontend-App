@@ -1,9 +1,26 @@
-import React from 'react'
+import React from "react";
+import "./styles/hc3.css";
 
-const HC3 = () => {
+const HC3 = (props) => {
+  const card = props.card,
+    scroll = props.scroll;
+    
+  // Button Styles
+  const { text, bg_color, text_color } = card.cta[0];
+
   return (
-    <div>HC3</div>
-  )
-}
+    <div className={`hc3-card ${scroll ? "hc3-card-display" : ""}`}>
+      <img src={card.bg_image.image_url} alt="" />
+      <h1 className="hc3card-title">{card.title}</h1>
+      <p className="hc3card-description">{card.description}</p>
+      <button
+        className="hc3card-button"
+        style={{ color: text_color, backgroundColor: bg_color }}
+      >
+        <p>{text}</p>
+      </button>
+    </div>
+  );
+};
 
 export default HC3;
