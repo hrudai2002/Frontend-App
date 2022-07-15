@@ -1,5 +1,12 @@
 import React, {useState, useEffect} from 'react'
+
+// importing cards...
+import HC1 from './cards/HC1'
 import HC3 from './cards/HC3'
+import HC5 from './cards/HC5'
+import HC6 from './cards/HC6'
+import HC9 from './cards/HC9' 
+
 import axios from 'axios';
 import './styles/main.css'
 
@@ -17,7 +24,6 @@ const Main = () => {
 
   useEffect(() => {
       const setData = (apiData) => {
-        console.log(apiData);
         apiData.card_groups.forEach((card) => {
             if (card.design_type === "HC1") {
               setHc1(card.cards);
@@ -48,14 +54,18 @@ const Main = () => {
     getData();
   }, [])
   
-
-  console.log(hc3);
   return (
     <div className="main">
       <div className={scrollHc3 ? "scrolling-wrapper" : ""}>
         {hc3 &&
           hc3.map((card, id) => {
             return <HC3 key={id} card={card} scroll={scrollHc3} />;
+          })}
+      </div>
+      <div className={scrollHc6 ? "scrolling-wrapper" : ""}>
+        {hc6 &&
+          hc6.map((card, id) => {
+            return <HC6 key={id} card={card} scroll={scrollHc6} />;
           })}
       </div>
     </div>

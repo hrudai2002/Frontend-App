@@ -1,0 +1,37 @@
+/* HC6 CSS */
+.hc6-card {
+  position: relative;
+  width: 88.88%;
+  height: 60px;
+  margin-left: 5.56%;
+  margin-top: 15px;
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+.hc6-card-display {
+  display: inline-block;
+}
+
+.hc6card-icon {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 25%;
+  left: 6.25%;
+}
+
+.hc6card-title {
+  position: absolute;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  top: 35%; 
+  left: 20.30%;
+}
+
+.hc6card-arrow {
+    position: absolute;
+    left: 90.62%;
+    top: 36.66%;
+}
