@@ -1,7 +1,12 @@
 /* HC3 card */
+
+.hc3-parent {
+  padding-top: 24px;
+  padding-bottom: 15px;
+}
+
 .hc3-card {
   position: relative;
-  color: #000;
   width: 88.88%;
   height: 350px;
   border-radius: 12px;
@@ -40,8 +45,6 @@
 
 .hc3card-button {
   position: absolute;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
   width: 128px;
   height: 42px;
   top: 82.28%;
