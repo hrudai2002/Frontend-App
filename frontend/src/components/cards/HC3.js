@@ -1,7 +1,8 @@
 import React from "react";
 import "./styles/hc3.css";
 
-const HC3 = (props) => {
+
+const Card = (props) => {
   const card = props.card,
     scroll = props.scroll;
     
@@ -21,6 +22,18 @@ const HC3 = (props) => {
       </button>
     </div>
   );
+}
+
+const HC3 = (props) => {
+    const cards = props.card;
+    const scroll = props.scroll;
+    return (
+      <>
+        {cards.map((card, id) => {
+          return <Card card={card} scroll = {scroll} />;
+        })}
+      </>
+    );
 };
 
 export default HC3;
