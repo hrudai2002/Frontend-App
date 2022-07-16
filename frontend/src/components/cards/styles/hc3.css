@@ -1,9 +1,4 @@
-/* HC3 card */
-
-.hc3-parent {
-  padding-top: 24px;
-  padding-bottom: 15px;
-}
+/* HC3 Card CSS */
 
 .hc3-card {
   position: relative;
@@ -51,6 +46,5 @@
   left: 10.3%;
   border: none;
   border-radius: 6px;
-  /* padding: 30.9% 33.9%; */
 }
 

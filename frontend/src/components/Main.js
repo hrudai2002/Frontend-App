@@ -11,13 +11,15 @@ import axios from "axios";
 import "./styles/main.css";
 
 const Main = () => {
-  // Different Cards
+
+  // useState that stores data of different cards
   const [hc1, setHc1] = useState([]);
   const [hc3, setHc3] = useState([]);
   const [hc5, setHc5] = useState([]);
   const [hc6, setHc6] = useState([]);
   const [hc9, setHc9] = useState([]);
   
+  // useState to check for scroll functionality
    const [scrollHc1, setScrollHc1] = useState(false);
    const [scrollHc3, setScrollHc3] = useState(false);
    const [scrollHc5, setScrollHc5] = useState(false);
@@ -25,7 +27,16 @@ const Main = () => {
 
   useEffect(() => {
     const setData = (apiData) => {
-      // Storing the data
+
+      // Cleaning the data to remove the duplicate data
+      setHc6([]);
+      setHc3([]); 
+      setHc5([]);
+      setHc6([]); 
+      setHc9([]);
+
+
+      // Storing the data in the useState Hook
       apiData.card_groups.forEach((cardData) => {
         if (cardData.design_type === "HC1") {
           setHc1((card) => [...card, cardData.cards]);
@@ -57,11 +68,11 @@ const Main = () => {
         }) 
     };
     getData();
+
   }, []);
 
   return (
     <div className="main">
-      
       {/* HC3 Card */}
       {hc3 && (
         <div className={scrollHc3 ? "scrolling-wrapper" : ""}>
@@ -76,6 +87,15 @@ const Main = () => {
         <div className={scrollHc6 ? "scrolling-wrapper" : ""}>
           {hc6.map((card, id) => {
             return <HC6 key={id} card={card} scroll={scrollHc6} />;
+          })}
+        </div>
+      )}
+
+      {/* HC5 Card */}
+      {hc5 && (
+        <div className={scrollHc5 ? "scrolling-wrapper" : ""}>
+          {hc5.map((card, id) => {
+            return <HC5 key={id} card={card} scroll={scrollHc5} />;
           })}
         </div>
       )}

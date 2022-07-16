@@ -34,7 +34,7 @@ const HC6 = (props) => {
   return (
     <>
       {cards.map((card, id) => {
-        return <Card card={card} scroll={scroll} />;
+        return <Card key = {id} card={card} scroll={scroll} />;
       })}
     </>
   );

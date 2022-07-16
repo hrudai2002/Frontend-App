@@ -1,0 +1,18 @@
+/* HC5 Card CSS */
+.hc5-card {
+  position: relative;
+  width: 88.88%;
+  height: 146.67px;
+  margin-left: 5.56%;
+  margin-top: 10px;
+}
+
+.hc5-card-display {
+  display: inline-block;
+}
+
+.hc5-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
