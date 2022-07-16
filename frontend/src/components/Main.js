@@ -20,7 +20,8 @@ const Main = () => {
 
   useEffect(() => {
     const setData = (apiData) => {
-      console.log(apiData);
+
+      // Storing the data
       apiData.card_groups.forEach((card) => {
         if (card.design_type === "HC1") {
           setHc1({ card: card.cards, scroll: card.is_scrollable });
@@ -37,6 +38,8 @@ const Main = () => {
         if (card.design_type === "HC9")  setHc9({ card: card.cards, scroll: card.is_scrollable });
       });
     };
+
+    // Fetching data from the API
     const getData = async () => {
       await axios
         .get("https://run.mocky.io/v3/4d8db890-5327-4c69-a3ef-b4f5f5225d17")
