@@ -1,0 +1,13 @@
+/* HC9 Card CSS */
+.hc9-card {
+    position: relative;
+    margin-left: 5.56%;
+    /* margin-top: 5px; */
+    width: auto;
+    height: 195px;
+    border-radius: 11px;
+}
+
+.hc9-card-display {
+  display: inline-block;
+}

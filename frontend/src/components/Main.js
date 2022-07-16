@@ -11,51 +11,47 @@ import axios from "axios";
 import "./styles/main.css";
 
 const Main = () => {
-
   // useState that stores data of different cards
   const [hc1, setHc1] = useState([]);
   const [hc3, setHc3] = useState([]);
   const [hc5, setHc5] = useState([]);
   const [hc6, setHc6] = useState([]);
   const [hc9, setHc9] = useState([]);
-  
+
   // useState to check for scroll functionality
-   const [scrollHc1, setScrollHc1] = useState(false);
-   const [scrollHc3, setScrollHc3] = useState(false);
-   const [scrollHc5, setScrollHc5] = useState(false);
-   const [scrollHc6, setScrollHc6] = useState(false);
+  const [scrollHc1, setScrollHc1] = useState(false);
+  const [scrollHc3, setScrollHc3] = useState(false);
+  const [scrollHc5, setScrollHc5] = useState(false);
+  const [scrollHc6, setScrollHc6] = useState(false);
+  const [scrollHc9, setScrollHc9] = useState(false);
 
   useEffect(() => {
     const setData = (apiData) => {
-
       // Cleaning the data to remove the duplicate data
       setHc6([]);
-      setHc3([]); 
+      setHc3([]);
       setHc5([]);
-      setHc6([]); 
+      setHc6([]);
       setHc9([]);
-
 
       // Storing the data in the useState Hook
       apiData.card_groups.forEach((cardData) => {
         if (cardData.design_type === "HC1") {
           setHc1((card) => [...card, cardData.cards]);
           setScrollHc1(cardData.is_scrollable);
-        }
-        else if (cardData.design_type === "HC3") {
+        } else if (cardData.design_type === "HC3") {
           setHc3((card) => [...card, cardData.cards]);
           setScrollHc3(cardData.is_scrollable);
-        }
-        else if (cardData.design_type === "HC5") {
-          setHc5(card => [...card, cardData.cards]);
+        } else if (cardData.design_type === "HC5") {
+          setHc5((card) => [...card, cardData.cards]);
           setScrollHc5(cardData.is_scrollable);
-        }
-        else if (cardData.design_type === "HC6") {
+        } else if (cardData.design_type === "HC6") {
           setHc6((card) => [...card, cardData.cards]);
           setScrollHc6(cardData.is_scrollable);
-        }
-        else if (cardData.design_type === "HC9")
+        } else if (cardData.design_type === "HC9") {
           setHc9((card) => [...card, cardData.cards]);
+          setScrollHc9(cardData.is_scrollable);
+        }
       });
     };
 
@@ -65,10 +61,9 @@ const Main = () => {
         .get("https://run.mocky.io/v3/4d8db890-5327-4c69-a3ef-b4f5f5225d17")
         .then((res) => {
           setData(res.data);
-        }) 
+        });
     };
     getData();
-
   }, []);
 
   return (
@@ -96,6 +91,15 @@ const Main = () => {
         <div className={scrollHc5 ? "scrolling-wrapper" : ""}>
           {hc5.map((card, id) => {
             return <HC5 key={id} card={card} scroll={scrollHc5} />;
+          })}
+        </div>
+      )}
+
+      {/* HC9 Card */}
+      {hc9 && (
+        <div className={scrollHc9 ? "scrolling-wrapper" : ""}>
+          {hc9.map((card, id) => {
+            return <HC9 key={id} card={card} scroll={scrollHc9} />;
           })}
         </div>
       )}
