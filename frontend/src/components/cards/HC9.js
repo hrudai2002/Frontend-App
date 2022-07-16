@@ -20,7 +20,6 @@ const Card = (props) => {
   );
 };
 
-
 const HC9 = (props) => {
   const cards = props.card;
   const scroll = props.scroll;

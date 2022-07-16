@@ -18,17 +18,10 @@ const Main = () => {
   const [hc6, setHc6] = useState([]);
   const [hc9, setHc9] = useState([]);
 
-  // useState to check for scroll functionality
-  const [scrollHc1, setScrollHc1] = useState(false);
-  const [scrollHc3, setScrollHc3] = useState(false);
-  const [scrollHc5, setScrollHc5] = useState(false);
-  const [scrollHc6, setScrollHc6] = useState(false);
-  const [scrollHc9, setScrollHc9] = useState(false);
-
   useEffect(() => {
     const setData = (apiData) => {
       // Cleaning the data to remove the duplicate data
-      setHc6([]);
+      setHc1([]);
       setHc3([]);
       setHc5([]);
       setHc6([]);
@@ -37,20 +30,15 @@ const Main = () => {
       // Storing the data in the useState Hook
       apiData.card_groups.forEach((cardData) => {
         if (cardData.design_type === "HC1") {
-          setHc1((card) => [...card, cardData.cards]);
-          setScrollHc1(cardData.is_scrollable);
+          setHc1((card) => [...card, [cardData.cards, cardData.is_scrollable]]);
         } else if (cardData.design_type === "HC3") {
-          setHc3((card) => [...card, cardData.cards]);
-          setScrollHc3(cardData.is_scrollable);
+          setHc3((card) => [...card, [cardData.cards, cardData.is_scrollable]]);
         } else if (cardData.design_type === "HC5") {
-          setHc5((card) => [...card, cardData.cards]);
-          setScrollHc5(cardData.is_scrollable);
+          setHc5((card) => [...card, [cardData.cards, cardData.is_scrollable]]);
         } else if (cardData.design_type === "HC6") {
-          setHc6((card) => [...card, cardData.cards]);
-          setScrollHc6(cardData.is_scrollable);
+          setHc6((card) => [...card, [cardData.cards, cardData.is_scrollable]]);
         } else if (cardData.design_type === "HC9") {
-          setHc9((card) => [...card, cardData.cards]);
-          setScrollHc9(cardData.is_scrollable);
+          setHc9((card) => [...card, [cardData.cards, cardData.is_scrollable]]);
         }
       });
     };
@@ -69,40 +57,68 @@ const Main = () => {
   return (
     <div className="main">
       {/* HC3 Card */}
-      {hc3 && (
-        <div className={scrollHc3 ? "scrolling-wrapper" : ""}>
-          {hc3.map((card, id) => {
-            return <HC3 key={id} card={card} scroll={scrollHc3} />;
-          })}
-        </div>
-      )}
+      {hc3 &&
+        hc3.map((card, id) => {
+          return (
+            <div
+              key={id}
+              className={card[1] ? "scrolling-wrapper" : "no-scrolling"}
+            >
+              <HC3 card={card[0]} scroll={card[1]} />
+            </div>
+          );
+        })}
 
       {/* HC6 Card */}
-      {hc6 && (
-        <div className={scrollHc6 ? "scrolling-wrapper" : ""}>
-          {hc6.map((card, id) => {
-            return <HC6 key={id} card={card} scroll={scrollHc6} />;
-          })}
-        </div>
-      )}
+      {hc6 &&
+        hc6.map((card, id) => {
+          return (
+            <div
+              key={id}
+              className={card[1] ? "scrolling-wrapper" : "no-scrolling"}
+            >
+              <HC6 card={card[0]} scroll={card[1]} />
+            </div>
+          );
+        })}
 
       {/* HC5 Card */}
-      {hc5 && (
-        <div className={scrollHc5 ? "scrolling-wrapper" : ""}>
-          {hc5.map((card, id) => {
-            return <HC5 key={id} card={card} scroll={scrollHc5} />;
-          })}
-        </div>
-      )}
+      {hc5 &&
+        hc5.map((card, id) => {
+          return (
+            <div
+              key={id}
+              className={card[1] ? "scrolling-wrapper" : "no-scrolling"}
+            >
+              <HC5 card={card[0]} scroll={card[1]} />
+            </div>
+          );
+        })}
 
       {/* HC9 Card */}
-      {hc9 && (
-        <div className={scrollHc9 ? "scrolling-wrapper" : ""}>
-          {hc9.map((card, id) => {
-            return <HC9 key={id} card={card} scroll={scrollHc9} />;
-          })}
-        </div>
-      )}
+      {hc9 &&
+        hc9.map((card, id) => {
+          return (
+            <div
+              key={id}
+              className={card[1] ? "scrolling-wrapper" : "no-scrolling"}
+            >
+              <HC9 card={card[0]} scroll={card[1]} />
+            </div>
+          );
+        })}
+      {/* HC1 Card */}
+      {hc1 &&
+        hc1.map((card, id) => {
+          return (
+            <div
+              key={id}
+              className={card[1] ? "scrolling-wrapper" : "no-scrolling"}
+            >
+              <HC1 card={card[0]} scroll={card[1]} />
+            </div>
+          );
+        })}
     </div>
   );
 };

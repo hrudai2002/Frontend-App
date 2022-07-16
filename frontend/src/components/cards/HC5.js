@@ -5,7 +5,7 @@ const Card = (props) => {
   const card = props.card;
   const scroll = props.scroll;
 
-  // Background Image
+  // Background Image, url
   const bg_image = card.bg_image.image_url;
 
   // URL
