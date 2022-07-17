@@ -7,13 +7,6 @@ import HC5 from "./cards/HC5";
 import HC6 from "./cards/HC6";
 import HC9 from "./cards/HC9";
 
-import {
-  PullToRefresh,
-  PullDownContent,
-  ReleaseContent,
-  RefreshContent,
-} from "react-js-pull-to-refresh";
-
 import axios from "axios";
 import "./styles/main.css";
 
@@ -61,26 +54,9 @@ const Main = () => {
     getData();
   }, []);
 
-  const refreshHandler = () =>
-     new Promise((resolve) => {
-       setTimeout(() => {
-         console.log("refreshed");
-         resolve();
-       }, 2000);
-  });
-
   return (
     <>
       <div className="main">
-        <PullToRefresh
-          pullDownContent={<PullDownContent />}
-          releaseContent={<ReleaseContent />}
-          refreshContent={<RefreshContent />}
-          pullDownThreshold={86}
-          onRefresh={refreshHandler}
-          triggerHeight={50}
-          startInvisible={true}
-        >
           {/* HC3 Card */}
           {hc3 &&
             hc3.map((card, id) => {
@@ -144,7 +120,6 @@ const Main = () => {
                 </div>
               );
             })}
-        </PullToRefresh>
       </div>
     </>
   );

@@ -8,8 +8,12 @@ const Card = (props) => {
   // Button Styles
   const { text, bg_color, text_color, url } = card.cta[0];
 
+
+
   return (
-    <div className={`hc3-card ${scroll && "hc3-card-display"}`}>
+    <div
+      className={`hc3-card ${scroll && "hc3-card-display"}`}
+   >
       <img src={card.bg_image.image_url} alt="" />
       <h1 className="hc3card-title">{card.title}</h1>
       <p className="hc3card-description">{card.description}</p>

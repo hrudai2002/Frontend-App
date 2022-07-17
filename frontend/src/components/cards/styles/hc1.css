@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     margin-right: 5.56%;
+    padding: 10px;
 }
 
 .hc1-card {
@@ -52,4 +53,8 @@
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   line-height: 16.41px;
+}
+
+.hc1card-title-noscroll, .hc1card-subtitle-noscroll {
+  left: 35.3%;
 }

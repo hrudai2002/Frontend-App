@@ -19,8 +19,16 @@ const Card = (props) => {
     >
       <a href={url} alt="">
         <img src={icon} alt="" className="hc1card-icon" />
-        <h1 className="hc1card-title">{title}</h1>
-        <p className="hc1card-subtitle">{title}</p>
+        <h1 className={`hc1card-title ${!scroll && "hc1card-title-noscroll"}`}>
+          {title}
+        </h1>
+        <p
+          className={`hc1card-subtitle ${
+            !scroll && "hc1card-subtitle-noscroll"
+          }`}
+        >
+          {title}
+        </p>
       </a>
     </div>
   );
