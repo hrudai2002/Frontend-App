@@ -2,6 +2,7 @@ import React from "react";
 import "./styles/hc5.css";
 
 const Card = (props) => {
+  // All data related to the Card...
   const card = props.card;
   const scroll = props.scroll;
 

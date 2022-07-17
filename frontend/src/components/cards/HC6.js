@@ -3,6 +3,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import "./styles/hc6.css";
 
 const Card = (props) => {
+  // All Data related to the Card
   const card = props.card,
     scroll = props.scroll;
 

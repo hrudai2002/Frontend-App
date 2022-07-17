@@ -2,10 +2,13 @@ import React from "react";
 import "./styles/hc1.css";
 
 const Card = (props) => {
+
+  // All the data related to the card ...
   const card = props.card,
     scroll = props.scroll;
-  console.log(scroll);
-  // title, url
+
+
+  // title, url, bg_color
   const { title, url, bg_color } = card;
 
   const icon = card.icon.image_url;

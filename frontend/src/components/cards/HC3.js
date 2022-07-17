@@ -2,6 +2,8 @@ import React from "react";
 import "./styles/hc3.css";
 
 const Card = (props) => {
+  
+  // All the data related to the Card ...
   const card = props.card,
     scroll = props.scroll;
 
