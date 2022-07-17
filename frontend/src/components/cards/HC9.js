@@ -1,5 +1,5 @@
-import React from 'react'
-import './styles/hc9.css'
+import React from "react";
+import "./styles/hc9.css";
 
 const Card = (props) => {
   const card = props.card;
@@ -12,24 +12,25 @@ const Card = (props) => {
   const url = card.url;
 
   return (
-    <a href={url}>
-      <div className={`hc9-card ${scroll ? "hc9-card-display" : ""}`}>
+    <div className={`hc9-card ${scroll && "hc9-card-display"}`}>
+      <a href={url}>
         <img src={bg_image} alt="" />
-      </div>
-    </a>
+      </a>
+    </div>
   );
 };
 
 const HC9 = (props) => {
   const cards = props.card;
-  const scroll = props.scroll;
+  let scroll = props.scroll;
+  if (!scroll && cards.length === 1) scroll = true;
   return (
-    <>
+    <div className={`${!scroll && "hc9card-parent"}`}>
       {cards.map((card, id) => {
         return <Card key={id} card={card} scroll={scroll} />;
       })}
-    </>
+    </div>
   );
-}
+};
 
-export default HC9
+export default HC9;

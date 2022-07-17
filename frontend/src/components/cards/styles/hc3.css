@@ -1,4 +1,11 @@
 /* HC3 Card CSS */
+.hc3card-parent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5.56%;
+}
 
 .hc3-card {
   position: relative;
@@ -11,6 +18,7 @@
 
 .hc3-card-display {
   display: inline-block;
+  margin-right: 5.56%;
 }
 
 .hc3-card img {
@@ -47,4 +55,3 @@
   border: none;
   border-radius: 6px;
 }
-

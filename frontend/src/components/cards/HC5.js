@@ -12,23 +12,25 @@ const Card = (props) => {
   const url = card.url;
 
   return (
-    <a href={url}>
-      <div className={`hc5-card ${scroll ? "hc5-card-display" : ""}`}>
+    <div className={`hc5-card ${scroll && "hc5-card-display"}`}>
+      <a href={url}>
         <img src={bg_image} alt="" />
-      </div>
-    </a>
+      </a>
+    </div>
   );
 };
 
 const HC5 = (props) => {
   const cards = props.card;
-  const scroll = props.scroll;
+  let scroll = props.scroll;
+  if (!scroll && cards.length === 1) scroll = true;
+
   return (
-    <>
+    <div className={`${!scroll && "hc5card-parent"}`}>
       {cards.map((card, id) => {
         return <Card key={id} card={card} scroll={scroll} />;
       })}
-    </>
+    </div>
   );
 };
 

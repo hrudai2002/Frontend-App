@@ -1,4 +1,12 @@
 /* HC5 Card CSS */
+.hc5card-parent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5.56%;
+}
+
 .hc5-card {
   position: relative;
   width: 88.88%;
@@ -9,6 +17,7 @@
 
 .hc5-card-display {
   display: inline-block;
+  margin-right: 5.56%;
 }
 
 .hc5-card img {

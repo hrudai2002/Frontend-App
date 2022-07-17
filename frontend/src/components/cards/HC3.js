@@ -10,7 +10,7 @@ const Card = (props) => {
   const { text, bg_color, text_color, url } = card.cta[0];
 
   return (
-    <div className={`hc3-card ${scroll ? "hc3-card-display" : ""}`}>
+    <div className={`hc3-card ${scroll && "hc3-card-display"}`}>
       <img src={card.bg_image.image_url} alt="" />
       <h1 className="hc3card-title">{card.title}</h1>
       <p className="hc3card-description">{card.description}</p>
@@ -28,13 +28,14 @@ const Card = (props) => {
 
 const HC3 = (props) => {
     const cards = props.card;
-    const scroll = props.scroll;
+    let scroll = props.scroll;
+    if (!scroll && cards.length === 1) scroll = true;
     return (
-      <>
+      <div className={`${!scroll && "hc3card-parent"}`}>
         {cards.map((card, id) => {
-          return <Card key = {id} card={card} scroll = {scroll} />;
+          return <Card key={id} card={card} scroll={scroll} />;
         })}
-      </>
+      </div>
     );
 };
 

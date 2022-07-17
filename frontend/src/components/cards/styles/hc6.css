@@ -1,4 +1,12 @@
 /* HC6 Card CSS */
+.hc6card-parent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5.56%;
+}
+
 .hc6-card {
   position: relative;
   width: 88.88%;
@@ -11,6 +19,7 @@
 
 .hc6-card-display {
   display: inline-block;
+  margin-right: 5.56%;
 }
 
 .hc6card-icon {
