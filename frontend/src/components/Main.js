@@ -7,6 +7,13 @@ import HC5 from "./cards/HC5";
 import HC6 from "./cards/HC6";
 import HC9 from "./cards/HC9";
 
+import {
+  PullToRefresh,
+  PullDownContent,
+  ReleaseContent,
+  RefreshContent,
+} from "react-js-pull-to-refresh";
+
 import axios from "axios";
 import "./styles/main.css";
 
@@ -54,72 +61,92 @@ const Main = () => {
     getData();
   }, []);
 
+  const refreshHandler = () =>
+     new Promise((resolve) => {
+       setTimeout(() => {
+         console.log("refreshed");
+         resolve();
+       }, 2000);
+  });
+
   return (
-    <div className="main">
-      {/* HC3 Card */}
-      {hc3 &&
-        hc3.map((card, id) => {
-          return (
-            <div
-              key={id}
-              className={card[1] ? "scrolling-wrapper" : "no-scrolling"}
-            >
-              <HC3 card={card[0]} scroll={card[1]} />
-            </div>
-          );
-        })}
+    <>
+      <div className="main">
+        <PullToRefresh
+          pullDownContent={<PullDownContent />}
+          releaseContent={<ReleaseContent />}
+          refreshContent={<RefreshContent />}
+          pullDownThreshold={86}
+          onRefresh={refreshHandler}
+          triggerHeight={50}
+          startInvisible={true}
+        >
+          {/* HC3 Card */}
+          {hc3 &&
+            hc3.map((card, id) => {
+              return (
+                <div
+                  key={id}
+                  className={card[1] ? "scrolling-wrapper" : "no-scrolling"}
+                >
+                  <HC3 card={card[0]} scroll={card[1]} />
+                </div>
+              );
+            })}
 
-      {/* HC6 Card */}
-      {hc6 &&
-        hc6.map((card, id) => {
-          return (
-            <div
-              key={id}
-              className={card[1] ? "scrolling-wrapper" : "no-scrolling"}
-            >
-              <HC6 card={card[0]} scroll={card[1]} />
-            </div>
-          );
-        })}
+          {/* HC6 Card */}
+          {hc6 &&
+            hc6.map((card, id) => {
+              return (
+                <div
+                  key={id}
+                  className={card[1] ? "scrolling-wrapper" : "no-scrolling"}
+                >
+                  <HC6 card={card[0]} scroll={card[1]} />
+                </div>
+              );
+            })}
 
-      {/* HC5 Card */}
-      {hc5 &&
-        hc5.map((card, id) => {
-          return (
-            <div
-              key={id}
-              className={card[1] ? "scrolling-wrapper" : "no-scrolling"}
-            >
-              <HC5 card={card[0]} scroll={card[1]} />
-            </div>
-          );
-        })}
+          {/* HC5 Card */}
+          {hc5 &&
+            hc5.map((card, id) => {
+              return (
+                <div
+                  key={id}
+                  className={card[1] ? "scrolling-wrapper" : "no-scrolling"}
+                >
+                  <HC5 card={card[0]} scroll={card[1]} />
+                </div>
+              );
+            })}
 
-      {/* HC9 Card */}
-      {hc9 &&
-        hc9.map((card, id) => {
-          return (
-            <div
-              key={id}
-              className={card[1] ? "scrolling-wrapper" : "no-scrolling"}
-            >
-              <HC9 card={card[0]} scroll={card[1]} />
-            </div>
-          );
-        })}
-      {/* HC1 Card */}
-      {hc1 &&
-        hc1.map((card, id) => {
-          return (
-            <div
-              key={id}
-              className={card[1] ? "scrolling-wrapper" : "no-scrolling"}
-            >
-              <HC1 card={card[0]} scroll={card[1]} />
-            </div>
-          );
-        })}
-    </div>
+          {/* HC9 Card */}
+          {hc9 &&
+            hc9.map((card, id) => {
+              return (
+                <div
+                  key={id}
+                  className={card[1] ? "scrolling-wrapper" : "no-scrolling"}
+                >
+                  <HC9 card={card[0]} scroll={card[1]} />
+                </div>
+              );
+            })}
+          {/* HC1 Card */}
+          {hc1 &&
+            hc1.map((card, id) => {
+              return (
+                <div
+                  key={id}
+                  className={card[1] ? "scrolling-wrapper" : "no-scrolling"}
+                >
+                  <HC1 card={card[0]} scroll={card[1]} />
+                </div>
+              );
+            })}
+        </PullToRefresh>
+      </div>
+    </>
   );
 };
 

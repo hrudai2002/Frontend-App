@@ -1,7 +1,6 @@
 import React from "react";
 import "./styles/hc3.css";
 
-
 const Card = (props) => {
   const card = props.card,
     scroll = props.scroll;
@@ -14,7 +13,7 @@ const Card = (props) => {
       <img src={card.bg_image.image_url} alt="" />
       <h1 className="hc3card-title">{card.title}</h1>
       <p className="hc3card-description">{card.description}</p>
-      <a href= {url}>
+      <a href={url}>
         <button
           className="hc3card-button"
           style={{ color: text_color, backgroundColor: bg_color }}
@@ -24,19 +23,19 @@ const Card = (props) => {
       </a>
     </div>
   );
-}
+};
 
 const HC3 = (props) => {
-    const cards = props.card;
-    let scroll = props.scroll;
-    if (!scroll && cards.length === 1) scroll = true;
-    return (
-      <div className={`${!scroll && "hc3card-parent"}`}>
-        {cards.map((card, id) => {
-          return <Card key={id} card={card} scroll={scroll} />;
-        })}
-      </div>
-    );
+  const cards = props.card;
+  let scroll = props.scroll;
+  if (!scroll && cards.length === 1) scroll = true;
+  return (
+    <div className={`${!scroll && "hc3card-parent"}`}>
+      {cards.map((card, id) => {
+        return <Card key={id} card={card} scroll={scroll} />;
+      })}
+    </div>
+  );
 };
 
 export default HC3;
